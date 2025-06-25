@@ -1,10 +1,5 @@
 # CRUDY: Route Protocol Game
 
-**Author:** [Student Name]  
-**Course:** [Course Name]  
-**Institution:** [University Name]  
-**Date:** [Submission Date]
-
 ## Project Description
 
 CRUDY is an interactive science fiction web-based game that challenges users through a series of progressive cognitive tests. The application demonstrates advanced JavaScript programming concepts, responsive web design, and user experience principles through an engaging narrative-driven interface.
