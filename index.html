@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUDY - Route Protocol</title>
+  <!-- Bootstrap CSS Framework -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts for sci-fi aesthetic -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Main header section -->
+  <header class="container py-5 text-center">
+    <h1 class="display-4">CRUDY: Protocolo de Rutas</h1>
+    <p class="lead" id="titleScene">Selecciona tu camino para iniciar el protocolo.</p>
+  </header>
+
+  <!-- Route selection menu -->
+  <main class="container text-center">
+    <div id="game">
+      <section class="mb-5" id="routes-section">
+        <!-- Route selection buttons -->
+        <div class="row justify-content-center g-4">
+          <div class="col-12 col-md-4">
+            <button class="btn scifi-btn w-100 py-3" id="btn-logica">Logica pura</button>
+          </div>
+          <div class="col-12 col-md-4">
+            <button class="btn scifi-btn w-100 py-3" id="btn-simulacion">Simulacion infinita</button>
+          </div>
+          <div class="col-12 col-md-4">
+            <button class="btn scifi-btn w-100 py-3" id="btn-corrupto">Camino corrupto</button>
+          </div>
+        </div>
+      </section>
+      <section id="narrativa" class="fade-in">
+        <!-- Personalized narrative based on user choice will be displayed here -->
+        <p class="text-info" id="story">Elige una ruta para que CRUDY te envie un mensaje...</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Bootstrap JavaScript bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- CRUDY game texts and data -->
+  <script src="js/texts.js"></script>
+  <!-- Main game logic -->
+  <script src="js/main.js"></script>
+</body>
+</html>

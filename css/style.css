@@ -1,0 +1,58 @@
+body {
+  background: radial-gradient(ellipse at center, #232526 0%, #0f2027 100%);
+  color: #fff;
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+}
+
+.scifi-btn {
+  /* Smooth transitions for transform and box-shadow */
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  /* Neon glow effects: outer and inner */
+  box-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7 inset;
+  
+  /* Solid cyan border */
+  border: 2px solid #00ffe7;
+  
+  /* Semi-transparent black background */
+  background: rgba(0, 0, 0, 0.7);
+  
+  /* Bold cyan text with letter spacing */
+  color: #00ffe7;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+
+.scifi-btn:hover {
+  transform: scale(1.05);  /* Enlarges button by 5% */
+  box-shadow: 0 0 20px #00ffe7, 0 0 40px #00ffe7 inset;  /* More intense glow */
+  background: #111;  /* Darker background */
+}
+
+.fade-in {
+  animation: fadeIn 1200ms;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;                    /* Invisible */
+    transform: translateY(20px);   /* 20px downward */
+  }
+  to { 
+    opacity: 1;                    /* Fully visible */
+    transform: translateY(0);      /* Normal position */
+  }
+}
+
+/**
+ * SIMON SAYS SELECTION HIGHLIGHT.
+ * - Bootstrap blue border to indicate selection
+ * - !important to override other styles
+ */
+.simon-selected {
+  border: 2px solid #0d6efd !important; /* Bootstrap primary blue */
+}
+
+ 
