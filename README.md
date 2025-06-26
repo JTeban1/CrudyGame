@@ -1,5 +1,7 @@
 # CRUDY: Route Protocol Game
 
+**Authors:** Juan Esteban Sepulveda, Emmanuel Rendón Goez, Juan Camilo Sánchez Méndez, Andrés Felipe Marín Patiño
+
 ## Project Description
 
 CRUDY is an interactive science fiction web-based game that challenges users through a series of progressive cognitive tests. The application demonstrates advanced JavaScript programming concepts, responsive web design, and user experience principles through an engaging narrative-driven interface.
@@ -101,5 +103,3 @@ The codebase follows professional development standards with clear separation of
 - **Content Data** (`texts.js`): All text content and question databases  
 - **Styling** (`style.css`): Visual design and animations
 - **Structure** (`index.html`): Semantic HTML foundation
-
-The application uses a state-based progression system where each phase must be completed successfully to advance, demonstrating understanding of conditional logic and user flow management.
