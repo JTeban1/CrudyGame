@@ -1,4 +1,3 @@
-// Global state variables
 let selectedRoute = null;
 let simonFailureCount = 0;
 
@@ -6,8 +5,15 @@ let simonFailureCount = 0;
 document.addEventListener('DOMContentLoaded', () => {
   const game = document.getElementById('game');
 
-  // ROUTE SELECTION - Initial game menu display
-  function showRoutes() {
+  /**
+   * Renders the route selection UI in the game container and sets up event listeners
+   * for each route button. When a button is clicked, the corresponding route is passed
+   * to the pickRoute function.
+   *
+   * @function
+   * @returns {void}
+   */
+  function showRoutes() {3
     game.innerHTML = `
       <section class="mb-5" id="routes-section">
         <div class="row justify-content-center g-4">
@@ -32,7 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn-corrupto').addEventListener('click', () => pickRoute('corrupt'));
   }
 
-  // ROUTE SELECTION - Handle user's path choice
+  /**
+   * Handles the selection of a route in the game.
+   * Updates the game UI with the narrative message for the selected route,
+   * and after a delay, displays the available doors for the next step.
+   *
+   * @param {string} route - The identifier for the selected route.
+   */
   function pickRoute(route) {
     selectedRoute = route;
     
@@ -45,7 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => showDoors(route), 5000);
   }
 
-  // DOOR SELECTION - Second phase of route exploration
+  /**
+   * Renders a set of interactive door buttons for a given route and attaches click event listeners to each.
+   *
+   * @param {string} route - The key representing the current route in the doorsData object.
+   */
   function showDoors(route) {
 
     const doors = doorsData[route].doors;
@@ -74,7 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // DOOR SELECTION - Display door choice result
+  /**
+   * Displays the result of selecting a door in the game and triggers the next action after a delay.
+   *
+   * @param {string} route - The current route or path in the game, used to access the relevant doors data.
+   * @param {string} doorKey - The unique key identifying the selected door.
+   */
   function showResult(route, doorKey) {
     const door = doorsData[route].doors.find(d => d.key === doorKey);
     
@@ -93,6 +114,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===== GAME 1: SIMON SAYS - Memory sequence challenge =====
+/**
+ * Initiates the Simon Says game sequence.
+ * 
+ * The function performs the following steps with timed delays:
+ * 1. Waits 4 seconds before starting.
+ * 2. Calls `circles()` to display the game circles.
+ * 3. After 100ms, calls `colors()` to show the color sequence.
+ * 4. Waits 4500ms (enough time for the color sequence to finish).
+ * 5. Calls `validation()` to start the player's input phase.
+ *
+ * No parameters or return value.
+ */
 function simonSay() {
   setTimeout(() => {
     circles();
@@ -111,7 +144,17 @@ function simonSay() {
 }
 
 
-// SIMON SAYS - Display color sequence for memorization
+/**
+ * Animates a sequence of color changes on a set of elements with specific IDs.
+ * Each element's color is changed from 'btn-primary' to 'btn-danger' and back,
+ * with a staggered delay between each element.
+ *
+ * The IDs of the elements to animate are specified in the `color` array.
+ * Each color change lasts for 500ms before reverting.
+ *
+ * No parameters.
+ * No return value.
+ */
 function colors() {
     const color = ["circle0", "circle2", "circle4", "circle1", "circle3"];
     for (let index = 0; index < color.length; index++) {
@@ -127,7 +170,6 @@ function colors() {
     }
 }
 
-// SIMON SAYS - Validate user input against correct sequence
 /**
  * Initializes the Simon Says game validation logic.
  * Sets up click event listeners on five circle elements, tracks the user's input sequence,
@@ -175,6 +217,20 @@ function startFractalLevel() {
   showFractalQuestion();
 
   // FRACTAL LOGIC - Display current logic question
+  /**
+   * Displays the current fractal question and its answer options in the game UI.
+   * If all questions have been answered, shows the end message and proceeds to the next quiz level after a delay.
+   * Dynamically creates answer buttons and attaches event handlers for user interaction.
+   * Also updates the failure counter display.
+   *
+   * Depends on the following external variables and functions:
+   * - fractalIndex: number, current question index.
+   * - fractalQuestions: array, list of question objects with 'question' and 'options'.
+   * - fractalTexts: object, contains 'start' and 'end' text strings.
+   * - startQuizLevel: function, called to proceed to the next level.
+   * - checkFractalAnswer: function, called when an answer is selected.
+   * - updateFails: function, updates the failure counter display.
+   */
   function showFractalQuestion() {
     const game = document.getElementById('game');
     
@@ -212,7 +268,6 @@ function startFractalLevel() {
   }
 
 
-  // FRACTAL LOGIC - Validate answer and progress or penalize
   /**
    * Checks if the selected answer index is correct for the current fractal question.
    * Updates the UI with feedback and manages game progression or failure state.
@@ -241,6 +296,13 @@ function startFractalLevel() {
     }
   }
 
+  /**
+   * Updates the displayed number of failed attempts for the fractal game.
+   * Finds the HTML element with the ID 'fractal-fails' and sets its text content
+   * to show the current number of attempts out of 3.
+   *
+   * Uses the `fractalFails` variable from the parent scope of startFractalLevel.
+   */
   function updateFails() {
     const failsP = document.getElementById('fractal-fails');
     
@@ -250,7 +312,6 @@ function startFractalLevel() {
   }
 }
 
-// ===== GAME 3: FINAL JUDGMENT - Philosophical choice quiz =====
 function startQuizLevel() {
   let quizIndex = 0;
   
@@ -259,6 +320,18 @@ function startQuizLevel() {
   showQuizQuestion();
 
   // FINAL JUDGMENT - Display philosophical questions
+  /**
+   * Displays the current quiz question and its answer options in the game container.
+   * If all questions have been answered, shows the final result instead.
+   * Dynamically creates buttons for each answer option and attaches click handlers.
+   *
+   * Depends on the following global variables/functions:
+   * - quizIndex: number, the current question index.
+   * - quizQuestions: array, list of quiz question objects with 'question' and 'options'.
+   * - quizTexts: object, contains text strings for the quiz UI.
+   * - showFinalResult: function, displays the final quiz result.
+   * - checkQuizAnswer: function, checks the selected answer.
+   */
   function showQuizQuestion() {
     const game = document.getElementById('game');
     
@@ -291,6 +364,13 @@ function startQuizLevel() {
 
 
   // FINAL JUDGMENT - Process answer and update score
+  /**
+   * Checks if the selected answer index is correct for the current quiz question.
+   * Increments the score if the answer is correct, advances to the next question,
+   * and displays the next quiz question.
+   *
+   * @param {number} idx - The index of the selected answer.
+   */
   function checkQuizAnswer(idx) {
     if (idx === quizQuestions[quizIndex].answer) {
       score++;
@@ -302,6 +382,19 @@ function startQuizLevel() {
   }
 
   // FINAL JUDGMENT - Determine and display final destiny
+  /**
+   * Displays the final result of the quiz game based on the player's score.
+   * Updates the game container with a final message and a "Play Again" button.
+   * The final message is determined by the value of the global `score` variable:
+   *   - If score >= 2: shows a positive message.
+   *   - If score === 1: shows a neutral message.
+   *   - Otherwise: shows a negative message.
+   * The "Play Again" button reloads the page when clicked.
+   *
+   * Dependencies:
+   * - Assumes existence of global variables: `score` and `quizTexts`.
+   * - Expects an element with id 'game' in the DOM.
+   */
   function showFinalResult() {
     const game = document.getElementById('game');
     
