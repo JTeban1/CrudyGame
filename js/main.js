@@ -307,7 +307,7 @@ function startFractalLevel() {
     const failsP = document.getElementById('fractal-fails');
     
     if (failsP) {
-      failsP.textContent = `Attempts: ${fractalFails}/3`;
+      failsP.textContent = `Intentos: ${fractalFails}/3`;
     }
   }
 }
