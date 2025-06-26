@@ -79,24 +79,24 @@ const fractalQuestions = [
     answer: 1
   },
   {
-    question: 'Si X es falso y Y es verdadero, ¿que valor tiene (X || Y)?',
-    options: ['Verdadero', 'Falso', 'Indefinido'],
-    answer: 0
-  },
-  {
-    question: 'Si Z es verdadero, ¿que valor tiene (!Z)?',
-    options: ['Verdadero', 'Falso', 'Indefinido'],
-    answer: 1
-  },
-  {
     question: 'Si P es verdadero y Q es desconocido, ¿que valor tiene (P && Q)?',
     options: ['Verdadero', 'Falso', 'Indefinido'],
     answer: 2
   },
   {
+    question: 'Si X es falso y Y es verdadero, ¿que valor tiene (X || Y)?',
+    options: ['Verdadero', 'Falso', 'Indefinido'],
+    answer: 0
+  },
+  {
     question: 'Si M es falso y N es desconocido, ¿que valor tiene (M || N)?',
     options: ['Verdadero', 'Falso', 'Indefinido'],
     answer: 2
+  },
+  {
+    question: 'Si Z es verdadero, ¿que valor tiene (!Z)?',
+    options: ['Verdadero', 'Falso', 'Indefinido'],
+    answer: 1
   },
   {
     question: 'Si R es desconocido y S es desconocido, ¿que valor tiene (R == S)?',
